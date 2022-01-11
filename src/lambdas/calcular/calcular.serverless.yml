@@ -1,0 +1,8 @@
+get-usuarios:
+  handler: src/calcular/handler.getTiempo
+  description: Método que obtiene el tiempo faltante para salir de trabajar.
+  events:
+    - http:
+        path: api/tiempofaltante
+        method: get
+        cors: true
