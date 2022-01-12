@@ -1,5 +1,5 @@
 getTiempo:
-  handler: src/calcular/handler.getTiempo
+  handler: src/lambdas/calcular/handler.getTiempo
   description: Método que obtiene el tiempo faltante para salir de trabajar.
   events:
     - http:

@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/WilliamCauich10/examples-ts-serverless#readme",
   "dependencies": {
-    "aws-sdk": "^2.1055.0",
     "knex": "^0.95.14",
     "mysql": "^2.18.1",
     "tedious": "^11.0.5",
