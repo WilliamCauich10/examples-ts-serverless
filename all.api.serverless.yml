@@ -1,0 +1,6 @@
+#
+# description: Archivo que contiene variables de entorno
+# author: William Cauich
+# creationDate: 12 de Enero del 2022
+#
+- '${file(./src/lambdas/calcular/calcular.serverless.yml)}'

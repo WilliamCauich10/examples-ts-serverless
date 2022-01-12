@@ -3,6 +3,7 @@
  * @author William Cauich
  * @creationDate 11 de enero del 2022
  */
+ import winston from 'winston'
  import { CommonResponse } from '../../common/model/commonResponse'
  import { ResponseManager } from '../../common/helpers/responseManager'
  import { errorConstants } from '../../common/helpers/errorConstants'
@@ -18,7 +19,7 @@ export async function getTiempo(event: any){
         return responseManager.handleResponse(result)
     }catch(err){
         // Se registra el error presentado
-        // winston.error(err)
+        winston.error(err)
         // Se entrega el error al lambda
         return responseManager.handleError(errorConstants.UNEXPECTED_ERROR)
     }

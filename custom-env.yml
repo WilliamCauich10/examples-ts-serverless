@@ -1,0 +1,17 @@
+#
+# description: Archivo que contiene variables de entorno
+# author: William Cauich
+# creationDate: 12 de Enero del 2022
+#
+# Variables que se heredan en todas las etapas
+default_env: &default_env # Días que se retiene el log en CloudWatch
+  LOG_RETENTION_IN_DAYS: 30
+# Dev stage
+dev:
+  <<: *default_env
+
+  # Tags de lambdas - Se agregan a todas las lambdas
+  LAMBDA_TAGS_LIST:
+    Enterprise: Demo
+    Project: '${opt:stage, self:service}'
+    Area: IT
