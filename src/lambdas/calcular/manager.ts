@@ -37,6 +37,6 @@ export class TiempoSalida {
     public getResultado():void{
         this.Comparar();
         console.log(`Faltan ${this.Fecha.HoraFinal} : ${this.Fecha.MinutoFinal}
-        PD: Beto ctm`);
+        PD: Beto ctm y gerardo se la come`);
     }
 }
