@@ -1,3 +1,5 @@
+import  moment  from "moment-timezone";
+moment.locale('es');
 /**
  * @description Lamda que calcula el tiempo faltante para salir de trabajar
  * @author William Cauich
@@ -5,13 +7,16 @@
  */
 interface DatosHoraSalida{
     FechaHoy: Date;
-    HoraEntrada: number;
-    HoraSalida: number;
-    HoraFinal?: number;
-    MinutoFinal?: number;
+    FechaEntrada: any;
+    FechaSalida: any;
+    FechaFinal?: any;
 }
 
 export class TiempoSalida {
+    private tiempoSec = new Date().getTime();
+    private tiempoTZ = moment.tz(this.tiempoSec,'America/Cancun');
+    private tiempoSalida = moment( this.tiempoTZ.format('YYYY')+'-'+this.tiempoTZ.format('M')+'-'+this.tiempoTZ.format('D') + '  16:30');
+
     private Fecha:any;
     constructor() {
         this.Fecha = this.Asignacion();
@@ -21,24 +26,21 @@ export class TiempoSalida {
         let Fecha = new Date();
         let Datos: DatosHoraSalida ={
             FechaHoy:Fecha,
-            HoraEntrada: (Fecha.getHours() * 60) + Fecha.getMinutes(),
-            HoraSalida: (16 * 60) + 30
+            FechaEntrada:  moment.tz(this.tiempoSec,'America/Cancun'), 
+            FechaSalida: moment( this.tiempoTZ.format('YYYY')+'-'+this.tiempoTZ.format('M')+'-'+this.tiempoTZ.format('D') + '  16:30')
         }
         return Datos;
     }
 
     private Comparar():DatosHoraSalida{
-        let diferencia = this.Fecha.HoraSalida - this.Fecha.HoraEntrada;
-        this.Fecha.HoraFinal = Math.floor(diferencia / 60);
-        this.Fecha.MinutoFinal = diferencia % 60;
+        this.Fecha.FechaFinal = this.Fecha.FechaEntrada.diff(this.tiempoTZ,'hours')+'h '+ moment( this.Fecha.FechaSalida.diff(this.tiempoTZ)).format("m[m] s[s]");
         return this.Fecha;
     }
     
     public getResultado():String{
         this.Comparar();
-        let result = `Faltan ${this.Fecha.HoraFinal} : ${this.Fecha.MinutoFinal}
-        PD: Beto ctm y gerardo se la come`;
-        console.log(result);
+        let result = `Faltan ${this.Fecha.FechaFinal} PD: Beto ctm y gerardo se la come`;
+        
         return result;
     }
 }
