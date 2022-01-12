@@ -34,9 +34,11 @@ export class TiempoSalida {
         return this.Fecha;
     }
     
-    public getResultado():void{
+    public getResultado():String{
         this.Comparar();
-        console.log(`Faltan ${this.Fecha.HoraFinal} : ${this.Fecha.MinutoFinal}
-        PD: Beto ctm y gerardo se la come`);
+        let result = `Faltan ${this.Fecha.HoraFinal} : ${this.Fecha.MinutoFinal}
+        PD: Beto ctm y gerardo se la come`;
+        console.log(result);
+        return result;
     }
 }
