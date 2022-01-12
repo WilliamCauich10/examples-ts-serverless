@@ -39,7 +39,7 @@ export class TiempoSalida {
     
     public getResultado():String{
         this.Comparar();
-        let result = `Faltan ${this.Fecha.FechaFinal} PD: Beto ctm y gerardo se la come`;
+        let result = `Faltan ${this.Fecha.FechaFinal} PD: Beto ctm y gerardo se la come;`;
         
         return result;
     }
