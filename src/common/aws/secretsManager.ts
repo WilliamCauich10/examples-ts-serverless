@@ -1,7 +1,7 @@
 /**
  * @description Clase que se encarga de consultar la informacion del secret de aws
- * @author Rafael Cetina
- * @creationDate 13 de Diciembre del 2021
+ * @author William Cauich
+ * @creationDate 12 de Enero del 2022
  */
 
 import AWS from 'aws-sdk'
