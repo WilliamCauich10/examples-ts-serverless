@@ -1,1 +1,29 @@
-node_modules/
+#
+# description: Archivo que contiene variables de entorno
+# author: William Cauich
+# creationDate: 12 de Enero del 2022
+#
+
+# files
+secrets.dev.yml
+dbconfigs.json
+#secrets.json
+#env.yml
+#serverless.yml
+
+# package directories
+node_modules
+jspm_packages
+layer
+
+# Serverless directories
+.serverless
+
+# NodeJS directories
+.build
+
+# editors directories
+.idea
+.vscode
+
+package-lock.json

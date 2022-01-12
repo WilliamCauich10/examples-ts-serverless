@@ -1,0 +1,11 @@
+#
+# description: Archivo que contiene variables de entorno
+# author: William Cauich
+# creationDate: 12 de Enero del 2022
+#
+
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto
+
+# Force the following filetypes to have unix eols, so Windows does not break them
+*.* text eol=lf
