@@ -1,9 +1,9 @@
 /**
  * @description Archivo que almacena los enumerados que se utilizan en las lambdas
- * @author Rafael Cetina
- * @creationDate 13 de Diciembre del 2021
+ * @author William Cauich
+ * @creationDate 13 de Enero del 2022
  */
-export enum enumDBEngine {
+ export enum enumDBEngine {
   mssql = 1,
   mysql,
   dynamoDB
@@ -16,6 +16,8 @@ export enum enumConfigSource {
 
 export enum enumDB {
   im = 'IM',
-  rds = 'RDSCurso',
+  rds = 'RDScurso',
+  rdsLocal = 'testdb',
+  agenciadirecta = 'agencydirect',
   chb = 'CHB'
 }

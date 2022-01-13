@@ -1,0 +1,71 @@
+#
+# description: Archivo de configuracion de la lambda usuarios
+# author: William Cauich
+# creationDate: 13 de Enero del 2022
+#
+get-usuarios:
+  handler: src/lambdas/usuarios/handler.getData
+  name: ${self:service}-${self:provider.stage}-client-get-usuarios
+  description: Método que obtiene los usuarios registrados.
+  tags: ${self:custom.environment.LAMBDA_TAGS_LIST}
+  events:
+    - http:
+        path: api/usuarios
+        method: get
+        cors: true
+
+get-usuario-by-id:
+  handler: src/lambdas/usuarios/handler.getDataById
+  name: ${self:service}-${self:provider.stage}-client-get-usuario-by-id
+  description: Método que obtiene un usuario dado un id.
+  tags: ${self:custom.environment.LAMBDA_TAGS_LIST}
+  events:
+    - http:
+        path: api/usuarios/{id}
+        method: get
+        cors: true
+        request:
+          parameters:
+            paths:
+              id: true
+
+post-usuario:
+  handler: src/lambdas/usuarios/handler.postData
+  name: ${self:service}-${self:provider.stage}-client-post-usuario
+  description: Método que crea un usuario.
+  tags: ${self:custom.environment.LAMBDA_TAGS_LIST}
+  events:
+    - http:
+        path: api/usuarios
+        method: post
+        cors: true
+
+update-usuario:
+  handler: src/lambdas/usuarios/handler.updateData
+  name: ${self:service}-${self:provider.stage}-client-update-usuario
+  description: Método que actualiza un usuario.
+  tags: ${self:custom.environment.LAMBDA_TAGS_LIST}
+  events:
+    - http:
+        path: api/usuarios/{id}
+        method: patch
+        request:
+          parameters:
+            paths:
+              id: true
+        cors: true
+
+delete-usuario:
+  handler: src/lambdas/usuarios/handler.deleteData
+  name: ${self:service}-${self:provider.stage}-client-delete-usuario
+  description: Método que elimina un usuario.
+  tags: ${self:custom.environment.LAMBDA_TAGS_LIST}
+  events:
+    - http:
+        path: api/usuarios/{id}
+        method: delete
+        request:
+          parameters:
+            paths:
+              id: true
+        cors: true

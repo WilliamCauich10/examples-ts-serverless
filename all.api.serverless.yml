@@ -4,3 +4,4 @@
 # creationDate: 12 de Enero del 2022
 #
 - '${file(./src/lambdas/calcular/calcular.serverless.yml)}'
+- '${file(./src/lambdas/usuarios/usuarios.serverless.yml)}'
