@@ -77,15 +77,13 @@
    try {
      // En el parametro event se encuentran los valores del Path y Query Params
      // Se realiza la consulta
-     
      const body = JSON.parse(event.body)
-     console.log(body);
-    //  const result = await usuarioManager.postUsuario(body)
-    //  if (typeof result === 'undefined') {
-    //    return responseManager.handleError(errorConstants.UNEXPECTED_ERROR)
-    //  }
+     const result = await usuarioManager.postUsuario(body)
+     if (typeof result === 'undefined') {
+       return responseManager.handleError(errorConstants.UNEXPECTED_ERROR)
+     }
      // Se genera el response
-     return responseManager.handleResponse(body)
+     return responseManager.handleResponse(result)
    } catch (err) {
      console.log(err)
      // Se registra el error presentado

@@ -39,6 +39,10 @@ post-usuario:
         path: api/usuarios
         method: post
         cors: true
+        request:
+          parameters:
+            paths:
+              id: true
 
 update-usuario:
   handler: src/lambdas/usuarios/handler.updateData

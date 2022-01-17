@@ -18,6 +18,6 @@ export enum enumDB {
   im = 'IM',
   rds = 'RDScurso',
   rdsLocal = 'testdb',
-  agenciadirecta = 'agencydirect',
+  agenciadirecta = 'RDScurso',
   chb = 'CHB'
 }
