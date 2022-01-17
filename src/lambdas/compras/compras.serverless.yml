@@ -1,0 +1,16 @@
+#
+# description: Archivo de configuracion de la lambda compras
+# author: William Cauich
+# creationDate: 17 de Enero del 2022
+#
+
+postUser:
+  handler: src/lambdas/compras/usuarios.postUser
+  name: ${self:service}-${self:provider.stage}postUser
+  description: Método que obtiene los usuarios registrados.
+  tags: ${self:custom.environment.LAMBDA_TAGS_LIST}
+  events:
+    - http:
+        path: api/compras/usuarios
+        method: get
+        cors: true
