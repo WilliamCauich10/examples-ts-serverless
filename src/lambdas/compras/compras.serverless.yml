@@ -12,5 +12,9 @@ postUser:
   events:
     - http:
         path: api/compras/usuarios
-        method: get
+        method: post
         cors: true
+        request:
+          parameters:
+            paths:
+              id: true
