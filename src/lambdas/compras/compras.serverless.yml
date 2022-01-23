@@ -14,7 +14,4 @@ postUser:
         path: api/compras/usuarios
         method: post
         cors: true
-        request:
-          parameters:
-            paths:
-              id: true
+        

@@ -14,7 +14,7 @@
   * @param {any} context Parametro enviado por API Gateway
   * @return {Promise<CommonResponse>} result Objeto serializado en JSON
   */
- export async function postUser(event: any, context: any): Promise<CommonResponse> {
+ export async function postUser(event: any): Promise<CommonResponse> {
     // Variables
     const usuarioManager = new UsuarioManager()
     const responseManager = new ResponseManager()
@@ -24,13 +24,8 @@
       // Se realiza la consulta
       console.log(event);
       const body = JSON.parse(event.body)
-    //   const result = await usuarioManager.postUsuario(body)
-    //   if (typeof result === 'undefined') {
-    //     return responseManager.handleError(errorConstants.UNEXPECTED_ERROR)
-    //   }
-      // Se genera el response
-    //   return responseManager.handleResponse(body)
-    const result = await usuarioManager.getUsuarios()
+       const result = await usuarioManager.postUsuario(body)
+    //const result = await usuarioManager.getUsuarios()
      if (typeof result === 'undefined') {
        return responseManager.handleError(errorConstants.UNEXPECTED_ERROR)
      }
