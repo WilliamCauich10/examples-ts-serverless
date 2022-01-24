@@ -4,6 +4,34 @@
 # creationDate: 17 de Enero del 2022
 #
 
+getUser:
+  handler: src/lambdas/compras/usuarios.getData
+  name: ${self:service}-${self:provider.stage}getUser
+  description: Método que obtiene los usuarios registrados.
+  tags: ${self:custom.environment.LAMBDA_TAGS_LIST}
+  events:
+    - http:
+        path: api/compras/user
+        method: get
+        cors: true
+
+getUserById:
+  handler: src/lambdas/compras/usuarios.getDataById
+  name: ${self:service}-${self:provider.stage}getUserById
+  description: Método que obtiene un usuario dado un id.
+  tags: ${self:custom.environment.LAMBDA_TAGS_LIST}
+  events:
+    - http:
+        path: api/compras/user/{id}
+        method: get
+        cors: true
+        request:
+          parameters:
+            paths:
+              id: true
+
+
+
 postUser:
   handler: src/lambdas/compras/usuarios.postUser
   name: ${self:service}-${self:provider.stage}postUser
@@ -11,7 +39,7 @@ postUser:
   tags: ${self:custom.environment.LAMBDA_TAGS_LIST}
   events:
     - http:
-        path: api/compras/usuarios
+        path: api/compras/user
         method: post
         cors: true
         
